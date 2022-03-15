@@ -8,7 +8,7 @@ function HomePage() {
     <>
     <Navbar/>
     <Register/>
-    <LoginForm/>
+    
     </>
   )
 }

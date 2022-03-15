@@ -57,7 +57,7 @@ function Register() {
                         <h1 className=''>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium doloremque enim, impedit exercitationem optio eveniet, ut incidunt voluptatibus cum eius magnam tempore sed mollitia quos! Nulla mollitia libero debitis corrupti hic ipsam?
                         </h1>
-                        <div className="w-full px-2 py-16 sm:px-0">
+                        <div className="w-full px-2 py-4 sm:px-0">
                             <Tab.Group defaultIndex={1}>
                                 <Tab.List>
                                     <Tab>Tab 1</Tab>
