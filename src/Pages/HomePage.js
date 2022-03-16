@@ -6,6 +6,7 @@ import LoginForm from '../Components/LoginForm';
 function HomePage() {
   return (
     <>
+  
     <Navbar/>
     <Register/>
     
