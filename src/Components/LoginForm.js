@@ -1,8 +1,5 @@
 
-import React from 'react'
-import loginimage from '../assets/loginimage.png'
-
-
+import React, { useState } from 'react';
 
 function LoginForm() {
 
@@ -15,7 +12,7 @@ function LoginForm() {
     setMember((preValue) => {
       return {
         ...preValue,
-        [name]: value
+        [name]: value 
       }
     });
   };
