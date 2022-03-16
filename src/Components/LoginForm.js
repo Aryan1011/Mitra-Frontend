@@ -1,12 +1,5 @@
 
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-import React ,{useState} from 'react'
-import loginimage from '../assets/loginimage.png'
-
-
->>>>>>> 7d4e16e1caa5b314503e1c2e1c450f1206803465
 
 function LoginForm() {
 

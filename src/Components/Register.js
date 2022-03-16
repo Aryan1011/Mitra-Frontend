@@ -5,6 +5,7 @@ import { Tab } from '@headlessui/react'
 
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
+import { Tabs } from './Tabs';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -58,7 +59,7 @@ function Register() {
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium doloremque enim, impedit exercitationem optio eveniet, ut incidunt voluptatibus cum eius magnam tempore sed mollitia quos! Nulla mollitia libero debitis corrupti hic ipsam?
                         </h1>
                         <div className="w-full px-2 py-16 sm:px-0">
-                           
+                           <Tabs/>
                         </div>
                     </div>
                 </div>
