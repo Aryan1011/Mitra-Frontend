@@ -1,15 +1,20 @@
 import React from 'react'
-import Navbar from '../Components/Navbar/Navbar';
-import Register from '../Components/Register';
-import LoginForm from '../Components/LoginForm';
+import Hero from '../Components/Hero'
+import Mission from '../Components/Mission'
+import Touch from '../Components/Touch'
+import Difference from '../Components/Difference'
+import Work from '../Components/Work'
 
 function HomePage() {
   return (
     <>
+
+    <Hero/>
+    <Mission/>
+    <Touch/>
+    <Difference/>
+    <Work/>
   
-    <Navbar/>
-    <Register/>
-    
     </>
   )
 }
