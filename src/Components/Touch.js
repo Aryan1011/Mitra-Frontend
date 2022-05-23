@@ -32,10 +32,12 @@ const Touch = () => {
   };
 
   return (
+    <div style={{padding:'4rem'}}>
+
     <form className="form" onSubmit={handleSubmit}>
       <div>
         <div className='touchContentOuter'>
-          <p className='touchContent'>GET IN TOUCH</p>
+          <p className='touchContent' style={{fontSize:'60px'}}>GET IN TOUCH</p>
         </div>
       </div>
       <label>Name</label>
@@ -66,6 +68,7 @@ const Touch = () => {
         Submit
       </button>
     </form>
+    </div>
   );
 };
 

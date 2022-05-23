@@ -29,10 +29,10 @@ function Navbar() {
             </div>
             <div className='navbarButtons'>
             <Link to="/signin"> 
-                <button >Sign In</button>
+                <button >Register</button>
             </Link>
             <Link to="/register"> 
-                <button >Register</button>
+                <button >Sign In</button>
             </Link>
             </div>
 

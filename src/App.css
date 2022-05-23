@@ -146,7 +146,7 @@ width: 80%;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
-  font-size: 60px;
+  font-size: 50px;
   line-height: 110px;
   display: flex;
   align-items: center;
@@ -157,7 +157,6 @@ width: 80%;
 }
 
 .form {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -169,7 +168,7 @@ width: 80%;
 
 .form > input,
 textarea {
-  padding: 20px;
+  padding: 12px;
   border-radius: 3px;
   /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.137); */
   margin-bottom: 20px;
@@ -412,5 +411,54 @@ color: #FFFFFF;
   margin: 0 auto;
 }
 
+
+
+/* Sign Up Page */
+
+.signup{
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0rem 1.5rem;
+}
+
+.signUpForm{
+  width: 50%;
+}
+.signUpImage{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.signUpImage img{
+  width: 70%;
+  height: 60%;
+}
+
+/* Sign In Page */
+
+.signin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 1.5rem;
+  height: auto;
+}
+
+.signInForm{
+  width: 50%;
+}
+.signInImage{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.signInImage img{
+  width: 70%;
+  /* height: 60%; */
+}
 
 
