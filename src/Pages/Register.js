@@ -2,62 +2,62 @@ import loginImg from '../assets/images/loginImg.jpg'
 import React, { useState, useEffect } from "react";
 
 function Register() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [email,SetEmail] = useState('');
+  const [password,setPassword] = useState('');
 
-  const [loader, setLoader] = useState(false);
-
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    // setLoader(true);
-
-    // db.collection("contacts")
-    //   .add({
-    //     name: name,
-    //     email: email,
-    //     message: message,
-    //   })
-    //   .then(() => {
-    //     setLoader(false);
-    //     alert("Your message has been submitted👍");
-    //   })
-    //   .catch((error) => {
-    //     alert(error.message);
-    //     setLoader(false);
-    //   });
-
-    // setName("");
-    // setEmail("");
-    // setMessage("");
-  };
+  const loginUser = async (e) =>{
+    e.preventDefault();
+    const res = await fetch("http://localhost:4000/signin",{  
+      method:"POST",
+        headers:{
+          "content-Type" : "application/json"
+        },
+        body: JSON.stringify({
+          email,password
+        })
+      });
+    const data = res.json();
+    if(res.status ===400 || !data){
+      window.alert("Invalid Credentials");
+    }
+    else{
+      window.alert("Login Successfull")
+    }
+  }
   return (
     <>
       <div className='signup'>
           <div className='signUpForm'>
             <div>
-              <form className="form" onSubmit={handleSubmit}>
+              <form method='POST' className="form" >
                 <div>
                   <div className='touchContentOuter'>
                     <p className='touchContent'>Sign In</p>
                   </div>
                 </div>
 
-                <label>Username</label>
+                <label htmlFor='email'>Email</label>
                 <input
-                  placeholder="Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Email"
+                  value={email}
+                  type='text'
+                  name='email'
+                  id='email'
+                  onChange={(e) => SetEmail(e.target.value)}
                 />
-                <label>Password</label>
+                <label htmlFor='password'>Password</label>
                 <input
-                  placeholder="Password"
+                 placeholder="Password"
+                  type='password'
                   value={password}
+                  name='cpassword'
+                  id='cpassword'
                   onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <button
+                onClick={loginUser}
                   type="submit"
-                  style={{ background: loader ? "#ccc" : " #40506A" }}
                 >
                   Submit
                 </button>

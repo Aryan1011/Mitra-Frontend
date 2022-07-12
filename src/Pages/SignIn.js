@@ -1,89 +1,119 @@
 import signImg from '../assets/images/loginImg.jpg'
 import React, { useState, useEffect } from "react";
 function SignIn() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [password, setPassword] = useState("");
-  const [cpassword, setCpassword] = useState("");
+  const [user,setUser] = useState({
+    name:"",
+    email:"",
+    phone:"",
+    address:"",
+    password:"",
+    cpassword:""
+  })
+let name,value;
+  const handleInputs= (e)=>{
+    console.log(e);
+    name = e.target.name;
+    value = e.target.value;
+    setUser({...user,[name]:value}); 
+  }
 
-  const [loader, setLoader] = useState(false);
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    // setLoader(true);
+const PostData = async(e)=>{
+  e.preventDefault();
+  const{ name, email, phone, address, password, cpassword } = user;
+  // console.log(user);
+  const res = await fetch("http://localhost:4000/register",{  
+  method:"POST",
+    headers:{
+      "content-Type" : "application/json"
+    },
+    body: JSON.stringify({
+      name, email, phone, address, password, cpassword
+    })
+  });
 
-    // db.collection("contacts")
-    //   .add({
-    //     name: name,
-    //     email: email,
-    //     message: message,
-    //   })
-    //   .then(() => {
-    //     setLoader(false);
-    //     alert("Your message has been submitted👍");
-    //   })
-    //   .catch((error) => {
-    //     alert(error.message);
-    //     setLoader(false);
-    //   });
+  const data = await res.json();
+  if(data.status === 422 || !data){
+    window.alert("Invalid Registration");
+    console.log("Invalid Registration");
+  }
+  else{
+    window.alert("Registration Successfull");
+    console.log("Registration SuccessFull");
+  }
+}
 
-    // setName("");
-    // setEmail("");
-    // setMessage("");
-  };
   return (
     <>
      <div className='signin'>
           <div className='signInForm'>
-              <form className="form" onSubmit={handleSubmit}>
+              <form method='POST' className="form" >
                 <div>
                   <div className='touchContentOuter'>
                     <p className='touchContent'>Register</p>
                   </div>
                 </div>
 
-                <label>Name</label>
+                <label htmlFor='name'>Name</label>
                 <input
-                  placeholder="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Name"
+                  type='text'
+                  name='name'
+                  id='name'
+                  autoComplete='off'
+                  value={user.name}
+                  onChange={handleInputs}
                 />
-                <label>Email</label>
+                <label htmlFor='email'>Email</label>
                 <input
-                  placeholder="email"
-                  value={email}
-                  onCh
-                  ange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                  type='text'
+                  autoComplete='off'
+                  name='email'
+                  id='email'
+                  value={user.email}
+                  onChange={handleInputs}
+        
                 />
-                <label>Phone</label>
+                <label htmlFor='phone'>Phone</label>
                 <input
-                  placeholder="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-                <label>Address</label>
+                 placeholder="phone"
+                  autoComplete='off'
+                  type='number'
+                  name='phone'
+                  id='phone'
+                  value={user.phone}
+                  onChange={handleInputs}/>
+                <label htmlFor='address'>Address</label>
                 <input
-                  placeholder="address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-                <label>Password</label>
+                  placeholder="Address"
+                  type='text'
+                  autoComplete='off'
+                  name='address'
+                  id='address'
+                  value={user.address}
+                  onChange={handleInputs} />
+                <label htmlFor='password'>Password</label>
                 <input
-                  placeholder="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <label>Confirm Password</label>
+                  placeholder="Password"
+                  type='password'
+                  autoComplete='off'
+                  name='password'
+                  id='password'
+                  value={user.password}
+                  onChange={handleInputs}/>
+                <label htmlFor='cpassword'>Confirm Password</label>
                 <input
-                  placeholder="cPassword"
-                  value={cpassword}
-                  onChange={(e) => setCpassword(e.target.value)}
-                />
+                 placeholder="Confirm Password"
+                  type='password'
+                  name='cpassword'
+                  autoComplete='off'
+                  id='cpassword'
+                  value={user.cpassword}
+                  onChange={handleInputs} />
 
                 <button
                   type="submit"
-                  style={{ background: loader ? "#ccc" : " #40506A" }}
+                  onClick={PostData}
                 >
                   Submit
                 </button>
